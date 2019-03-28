@@ -45,7 +45,7 @@
                     </a-tooltip>
                 </h2>
             </div>
-            <div id="workingHours" style="width:100%;height:370px;"></div>
+            <div id="workingHours" style="position:absolute;top:65px;left:0;width:100%;height:370px;"></div>
           </div>
         </a-card>
       </div>
@@ -54,11 +54,10 @@
             <div style="position:relative;padding:0 20px;box-sizing: border-box;width:100%;">
                <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '16px'}" style="position:absolute;width:96%"  @change="addChange">
                <div class="extra-wrap" slot="tabBarExtraContent" style="position:relative;">
-               
                </div>
                <a-tab-pane loading="true" tab="部门员工职务分布" key="1">
                   <a-row>
-                  <div id="duty" style="height:400px;width:100%;top:-18px"></div>
+                  <div id="duty" style="left:0;height:400px;width:100%;top:-18px"></div>
                   </a-row>
                </a-tab-pane>
                <a-tab-pane tab="部门员工业务职级分布" key="2">

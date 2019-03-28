@@ -1,21 +1,29 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <a-locale-provider :locale="locale">
+        <div id="app">
+          <router-view/>
+        </div>
+    </a-locale-provider>
 </template>
-
 <script>
 import enquireScreen from './utils/device'
-
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+import ALocaleProvider from 'ant-design-vue/es/locale-provider'
+import axios from 'axios';
+// import {authorityAction} from '@/servers/pageAuthority.js'
 export default {
   name: 'App',
-  created () {
-    let _this = this
-    enquireScreen(isMobile => {
-      _this.$store.commit('setting/setDevice', isMobile)
-    })
+  components: {
+     ALocaleProvider,
   },
-  monuted(){
+  data() {
+    return {
+      locale: zhCN,
+    }
+  },
+  // 兼容IE浏览器的渲染和跳转的切换
+   mounted(){
+    // authorityAction()
     function checkIE(){
       return '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style
     }
@@ -32,7 +40,7 @@ export default {
 </script>
 
 <style lang="less">
-  :global{
+:global{
     //拖拽控件全局样式
     .dragable-ghost{
       border: 1px dashed #aaaaaa;
